@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>德邦天赋 - 游戏攻略与配点指南</title>
+    <meta name="description" content="德邦天赋详解，包含德邦物流相关职业规划、DOTA2英雄德邦将星天赋树全解析、以及德邦物流企业人才发展体系介绍。提供详细的技能加点、符文搭配及实战技巧。">
+    <meta name="keywords" content="德邦天赋,德邦将星,DOTA2天赋树,德邦物流招聘,游戏攻略">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --highlight-color: #e74c3c;
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        .btn-nav {
+            padding: 8px 20px;
+            background-color: var(--accent-color);
+            color: white !important;
+            border-radius: 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a252f 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            color: var(--accent-color);
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            margin: 0;
+            opacity: 0.8;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--text-secondary);
+        }
+
+        /* Tabs for Game Content */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .tab-btn {
+            padding: 10px 25px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Game Cards */
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-header h3 {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+        }
+
+        .card-badge {
+            font-size: 0.8rem;
+            padding: 4px 8px;
+            background-color: #e3f2fd;
+            color: var(--accent-color);
+            border-radius: 4px;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .talent-list {
+            margin-top: 15px;
+        }
+
+        .talent-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+
+        .talent-icon {
+            width: 24px;
+            height: 24px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .talent-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .talent-desc strong {
+            color: var(--text-main);
+        }
+
+        /* Corporate Section */
+        .corporate-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .corporate-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .corporate-text p {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+
+        .feature-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .corporate-image {
+            background-color: #eef2f5;
+            height: 300px;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-weight: 500;
+        }
+
+        /* FAQ */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .faq-item h4 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .faq-item p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+            color: #bdc3c7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .corporate-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <span>⚡</span> 德邦天赋
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#game">游戏攻略</a></li>
+                    <li><a href="#corporate">企业人才</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                    <li><a href="#" class="btn-nav">联系合作</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>深度解析德邦天赋<br>助力职业发展与游戏进阶</h1>
+                <p>无论您是寻找职业成长路径的职场人士，还是正在研究最新天赋系统的游戏玩家，这里都有您需要的权威指南与实用建议。</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h3>10万+</h3>
+                        <p>职业成长案例</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>5.0</h3>
+                        <p>游戏攻略评分</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>24h</h3>
+                        <p>实时更新支持</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Game Section -->
+        <section id="game">
+            <div class="container">
+                <div class="section-title">
+                    <h2>热门天赋解析</h2>
+                    <p>针对不同游戏版本与场景，提供最优化的天赋加点方案</p>
+                </div>
+
+                <div class="tabs">
+                    <button class="tab-btn active" onclick="openTab(event, 'dota2')">DOTA2: 德邦将星</button>
+                    <button class="tab-btn" onclick="openTab(event, 'other')">其他游戏/通用</button>
+                </div>
+
+                <!-- Tab: Dota2 -->
+                <div id="dota2" class="tab-content active">
+                    <div class="game-grid">
+                        <!-- Card 1 -->
+                        <article class="card">
+                            <div class="card-header">
+                                <h3>力量型加点路线</h3>
+                                <span class="card-badge">主流</span>
+                            </div>
+                            <div class="card-body">
+                                <p style="margin-bottom: 15px; color: #666;">适合前期对线压制力强，后期能抗能打的打法。</p>
+                                <div class="talent-list">
+                                    <div class="talent-item">
+                                        <div class="talent-icon">1</div>
+                                        <div class="talent-desc"><strong>25级：</strong>力量增加30</div>
+                                    </div>
+                                    <div class="talent-item">
+                                        <div class="talent-icon">20</div>
+                                        <div class="talent-desc"><strong>20级：</strong>基础攻击力提升</div>
+                                    </div>
+                                    <div class="talent-item">
+                                        <div class="talent-icon">15</div>
+                                        <div class="talent-desc"><strong>15级：</strong>力量成长提升</div>
+                                    </div>
+                                    <div class="talent-item">
+                                        <div class="talent-icon">10</div>
+                                        <div class="talent-desc"><strong>10级：</strong>力量属性提升</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 2 -->
+                        <article class="card">
+                            <div class="card-header">
+                                <h3>敏捷型加点路线</h3>
+                                <span class="card-badge">爆发</span>
+                            </div>
+                            <div class="card-body">
+                                <p style="margin-bottom: 15px; color: #666;">利用高攻速和暴击，在团战中快速切入敌方后排。</p>
+                                <div class="talent-list">
+                                    <div class="talent-item">
+                                        <div class="talent-icon">1</div>
+                                        <div class="talent-desc"><strong>25级：</strong>暴击几率提升</div>
+                                    </div>
+                                    <div class="talent-item">
+                                        <div class="talent-icon">20</div>
+                                        <div class="talent-desc"><strong>20级：</strong>攻击速度提升</div>
+                                    </div>
+                                    <div class="talent-item">
+                                        <div class="talent-icon">15</div>
+                                        <div class="talent-desc"><strong>15级：</strong>敏捷成长提升</div>
+                                    </div>
+                                    <div class="talent-item">
+                                        <div class="talent-icon">10</div>
+                                        <div class="talent-desc"><strong>10级：</strong>敏捷属性提升</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 3 -->
+                        <article class="card">
+                            <div class="card-header">
+                                <h3>生存型加点路线</h3>
+                                <span class="card-badge">坦克</span>
+                            </div>
+                            <div class="card-body">
+                                <p style="margin-bottom: 15px; color: #666;">增强生存能力，利用嘲讽技能为队友创造输出环境。</p>
+                                <div class="talent-list">
+                                    <div class="talent-item">
+                                        <div class="talent-icon">1</div>
+                                        <div class="talent-desc"><strong>25级：</strong>生命值提升</div>
+                                    </div>
+                                    <div class="talent-item">
+                                        <div class="talent-icon">20</div>
+                                        <div class="talent-desc"><strong>20级：</strong>格挡几率提升</div>
+                                    </div>
+                                    <div class="talent-item">
+                                        <div class="talent-icon">15</div>
+                                        <div class="talent-desc"><strong>15级：</strong>护甲提升</div>
+                                    </div>
+                                    <div class="talent-item">
+                                        <div class="talent-icon">10</div>
+                                        <div class="talent-desc"><strong>10级：</strong>生命恢复提升</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Tab: Other -->
+                <div id="other" class="tab-content">
+                    <div class="game-grid">
+                        <article class="card">
+                            <div class="card-body">
+                                <h3>通用属性成长</h3>
+                                <p style="color: #666; margin-top: 10px;">在大多数RPG类游戏中，德邦角色通常拥有较高的初始力量和不错的移动速度，适合新手玩家上手。</p>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card-body">
+                                <h3>技能加点建议</h3>
+                                <p style="color: #666; margin-top: 10px;">优先升级核心控制技能或主要输出技能，根据团队需求分配剩余点数。</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Corporate Section -->
+        <section id="corporate" style="background-color: #fff;">
+            <div class="container">
+                <div class="section-title">
+                    <h2>德邦物流人才发展</h2>
+                    <p>解析德邦物流的人才选拔机制与职业晋升体系</p>
+                </div>
+
+                <div class="corporate-grid">
+                    <div class="corporate-text">
+                        <h3>德邦物流：打造卓越物流人才</h3>
+                        <p>德邦作为国内领先的物流企业，拥有一套完善的人才培养与选拔体系。通过“德邦天赋”这一概念，企业致力于发掘员工在物流管理、驾驶技术、客户服务等领域的潜力，并通过科学的评估模型进行定向培养。</p>
+                        <ul class="feature-list">
+                            <li><strong>岗位晋升路径清晰：</strong>从基层操作员到区域经理，拥有透明的晋升通道。</li>
+                            <li><strong>专业技能培训：</strong>提供驾驶安全、仓储管理、物流规划等系统化培训。</li>
+                            <li><strong>综合素质评估：</strong>通过定期的能力测评，帮助员工发现自身优势与短板。</li>
+                            <li><strong>激励机制完善：</strong>绩效奖金、股权激励等多重回报体系。</li>
+                        </ul>
+                        <a href="#" style="color: var(--accent-color); font-weight: 600; margin-top: 10px; display: inline-block;">查看招聘详情 &rarr;</a>
+                    </div>
+                    <div class="corporate-image">
+                        <div style="text-align: center;">
+                            <div style="font-size: 3rem; margin-bottom: 10px;">🚛</div>
+                            <p>德邦物流人才发展中心</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq">
+            <div class="container">
+                <div class="section-title">
+                    <h2>常见问题解答</h2>
+                </div>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h4>德邦天赋树在哪里查看？</h4>
+                        <p>如果您指的是游戏内的德邦将星，天赋树通常在游戏主界面的英雄选择阶段或技能升级界面中可见。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>德邦物流招聘对学历有要求吗？</h4>
+                        <p>德邦物流招聘岗位众多，从司机到管理岗，学历要求各不相同。一般操作岗要求高中/中专以上，管理岗通常要求大专及以上。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>新手应该如何选择天赋加点？</h4>
+                        <p>新手建议参考主流攻略，选择容错率高、技能循环简单的加点方案，随着对游戏理解的加深再进行调整。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>如何提升在德邦物流的职业竞争力？</h4>
+                        <p>除了专业技能外，考取相关的职业资格证书（如物流师证）、提升沟通能力和管理能力是关键。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>关于德邦天赋</h4>
+                    <p style="color: #bdc3c7; font-size: 0.9rem; line-height: 1.8;">
+                        本站致力于提供最准确的游戏攻略与职业发展资讯。我们关注游戏平衡性与职场成长，为用户提供有价值的参考。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">游戏资讯</a></li>
+                        <li><a href="#">职业规划</a></li>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">联系投稿</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">官方微博</a></li>
+                        <li><a href="#">玩家社区</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 德邦天赋网. All Rights Reserved. 版权所有.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+                      </html>
