@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>麦乐迪 - 沉浸式数字娱乐与潮流社区门户</title>
+    <meta name="description" content="麦乐迪为您提供最新的数字娱乐资讯、潮流生活方式分享以及互动社区服务。探索游戏、动漫、数码及生活方式的融合体验，发现更多精彩内容。">
+    <meta name="keywords" content="麦乐迪,数字娱乐,潮流社区,游戏资讯,生活方式">
+    <style>
+        :root {
+            --primary-color: #6C5CE7;
+            --secondary-color: #00CEC9;
+            --accent-color: #FD79A8;
+            --dark-bg: #2D3436;
+            --card-bg: #FFFFFF;
+            --text-main: #2D3436;
+            --text-light: #636E72;
+            --bg-light: #F5F6FA;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--dark-bg);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-menu a {
+            font-weight: 600;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--primary-color);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover::after, .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 16px;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: #fff;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(108, 92, 231, 0.4);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, #2D3436 0%, #000000 100%);
+            color: white;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://picsum.photos/seed/melody/1920/1080.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.4;
+            mix-blend-mode: overlay;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #fff, #a29bfe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #dfe6e9;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+        }
+
+        /* 特色服务板块 */
+        .features {
+            padding: 60px 0;
+            background-color: var(--bg-light);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 32px;
+            margin-bottom: 12px;
+            color: var(--dark-bg);
+        }
+
+        .section-header p {
+            color: var(--text-light);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--bg-light), #dfe6e9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* 最新动态 */
+        .latest-news {
+            padding: 80px 0;
+            background-color: var(--card-bg);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .news-card {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            background: var(--card-bg);
+            border: 1px solid #eee;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-color: transparent;
+        }
+
+        .news-image {
+            height: 200px;
+            background-color: #eee;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .news-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .news-card:hover .news-image img {
+            transform: scale(1.05);
+        }
+
+        .news-tag {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 4px 8px;
+            font-size: 12px;
+            border-radius: 4px;
+        }
+
+        .news-content {
+            padding: 24px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-date {
+            font-size: 12px;
+            color: #b2bec3;
+            margin-bottom: 8px;
+        }
+
+        .news-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .news-excerpt {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .read-more {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .read-more:hover {
+            gap: 8px;
+        }
+
+        /* 社区互动 */
+        .community {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+
+        .community-layout {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .community-main {
+            flex: 2;
+        }
+
+        .community-sidebar {
+            flex: 1;
+        }
+
+        .topic-list {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 24px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .topic-item {
+            display: flex;
+            align-items: center;
+            padding: 16px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .topic-item:last-child {
+            border-bottom: none;
+        }
+
+        .topic-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #E0F7FA;
+            color: var(--secondary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+            font-size: 18px;
+        }
+
+        .topic-info h4 {
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .topic-meta {
+            font-size: 12px;
+            color: #b2bec3;
+        }
+
+        .hot-rank {
+            background: linear-gradient(135deg, #2D3436, #000000);
+            color: white;
+            padding: 24px;
+            border-radius: var(--border-radius);
+        }
+
+        .hot-rank h3 {
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 10px;
+        }
+
+        .rank-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+
+        .rank-list li span:first-child {
+            font-weight: 600;
+        }
+
+        .rank-num {
+            width: 24px;
+            height: 24px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-size: 12px;
+            margin-right: 10px;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: var(--dark-bg);
+            color: #dfe6e9;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: #b2bec3;
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 13px;
+            color: #636e72;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .community-layout {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none; /* 移动端简化：隐藏菜单 */
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-buttons {
+                flex-direction: column;
+            }
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 导航栏 -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 18V5L12 2L15 5V18" stroke="#6C5CE7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M5 22H19" stroke="#6C5CE7" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                麦乐迪<span>.</span>
+            </a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">数字娱乐</a></li>
+                    <li><a href="#">潮流生活</a></li>
+                    <li><a href="#">社区讨论</a></li>
+                    <li><a href="#">关于我们</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="btn btn-outline">登录</button>
+                <button class="btn btn-primary">加入社区</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero 区域 -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-tag">New Arrival</span>
+                <h1>探索无限可能，定义你的数字生活</h1>
+                <p>在麦乐迪，我们汇聚全球优质数字内容，从前沿科技到潮流文化，为您提供一站式沉浸式体验。加入我们，发现属于你的精彩。</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary">立即探索</button>
+                    <button class="btn btn-outline" style="color:white; border-color:white;">了解更多</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心功能 -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>为什么选择麦乐迪</h2>
+                <p>我们致力于打造最纯粹、最优质的数字内容聚合平台</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎮</div>
+                    <h3>沉浸式体验</h3>
+                    <p>高清画质与流畅交互，为您带来影院级的视觉享受。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>极速更新</h3>
+                    <p>第一时间获取最新资讯与热门内容，不再错过任何精彩瞬间。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3>活跃社区</h3>
+                    <p>与志同道合的朋友交流互动，分享观点，共同成长。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>安全可靠</h3>
+                    <p>严格的内容审核机制，确保每一位用户的安全与隐私。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 最新动态 -->
+    <section class="latest-news">
+        <div class="container">
+            <div class="section-header">
+                <h2>最新动态</h2>
+                <p>关注麦乐迪，掌握第一手行业资讯与热点话题</p>
+            </div>
+            <div class="news-grid">
+                <article class="news-card">
+                    <div class="news-image">
+                        <span class="news-tag">科技</span>
+                        <img src="https://picsum.photos/seed/tech1/400/300.jpg" alt="虚拟现实技术发展">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">2023-10-24</div>
+                        <h3 class="news-title"><a href="#">虚拟现实技术如何重塑数字娱乐体验</a></h3>
+                        <p class="news-excerpt">随着硬件性能的提升，VR技术正逐渐走进大众视野，为用户带来前所未有的沉浸感...</p>
+                        <a href="#" class="read-more">阅读全文 &rarr;</a>
+                    </div>
+                </article>
+                <article class="news-card">
+                    <div class="news-image">
+                        <span class="news-tag">生活</span>
+                        <img src="https://picsum.photos/seed/life1/400/300.jpg" alt="极简主义生活方式">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">2023-10-22</div>
+                        <h3 class="news-title"><a href="#">极简主义生活方式指南：断舍离的艺术</a></h3>
+                        <p class="news-excerpt">在这个物质过剩的时代，如何通过断舍离找回内心的平静？本文为您提供实用建议...</p>
+                        <a href="#" class="read-more">阅读全文 &rarr;</a>
+                    </div>
+                </article>
+                <article class="news-card">
+                    <div class="news-image">
+                        <span class="news-tag">游戏</span>
+                        <img src="https://picsum.photos/seed/game1/400/300.jpg" alt="独立游戏推荐">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">2023-10-20</div>
+                        <h3 class="news-title"><a href="#">本周精选：五款不容错过的独立游戏</a></h3>
+                        <p class="news-excerpt">创意无限，玩法独特，这些独立游戏正在重新定义游戏行业的边界...</p>
+                        <a href="#" class="read-more">阅读全文 &rarr;</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 社区互动 -->
+    <section class="community">
+        <div class="container">
+            <div class="section-header">
+                <h2>热门话题</h2>
+                <p>加入讨论，分享您的观点与见解</p>
+            </div>
+            <div class="community-layout">
+                <main class="community-main">
+                    <div class="topic-list">
+                        <div class="topic-item">
+                            <div class="topic-icon">💻</div>
+                            <div class="topic-info">
+                                <h4><a href="#">如何高效管理个人数字资产？</a></h4>
+                                <div class="topic-meta">回复 128 · 浏览 3.5k</div>
+                            </div>
+                        </div>
+                        <div class="topic-item">
+                            <div class="topic-icon">🎵</div>
+                            <div class="topic-info">
+                                <h4><a href="#">2023年度最佳电子音乐榜单发布</a></h4>
+                                <div class="topic-meta">回复 45 · 浏览 1.2k</div>
+                            </div>
+                        </div>
+                        <div class="topic-item">
+                            <div class="topic-icon">🎨</div>
+                            <div class="topic-info">
+                                <h4><a href="#">数字绘画初学者的必备工具推荐</a></h4>
+                                <div class="topic-meta">回复 89 · 浏览 2.1k</div>
+                            </div>
+                        </div>
+                        <div class="topic-item">
+                            <div class="topic-icon">📸</div>
+                            <div class="topic-info">
+                                <h4><a href="#">手机摄影构图技巧分享会</a></h4>
+                                <div class="topic-meta">回复 210 · 浏览 5.6k</div>
+                            </div>
+                        </div>
+                        <div class="topic-item">
+                            <div class="topic-icon">🎬</div>
+                            <div class="topic-info">
+                                <h4><a href="#">科幻电影中的未来科技猜想</a></h4>
+                                <div class="topic-meta">回复 67 · 浏览 1.8k</div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <aside class="community-sidebar">
+                    <div class="hot-rank">
+                        <h3>🔥 热门排行</h3>
+                        <ul class="rank-list">
+                            <li>
+                                <span><span class="rank-num">1</span>元宇宙社交趋势</span>
+                                <span>8.9k</span>
+                            </li>
+                            <li>
+                                <span><span class="rank-num">2</span>智能家居改造</span>
+                                <span>6.2k</span>
+                            </li>
+                            <li>
+                                <span><span class="rank-num">3</span>复古游戏怀旧</span>
+                                <span>5.4k</span>
+                            </li>
+                            <li>
+                                <span><span class="rank-num">4</span>极简办公桌搭</span>
+                                <span>4.1k</span>
+                            </li>
+                            <li>
+                                <span><span class="rank-num">5</span>开源软件推荐</span>
+                                <span>3.8k</span>
+                            </li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo" style="margin-bottom: 20px; display:inline-block;">
+                        麦乐迪<span>.</span>
+                    </a>
+                    <p style="color: #b2bec3; font-size: 14px; line-height: 1.8;">
+                        麦乐迪致力于为用户提供最优质的数字内容服务。我们相信，科技与生活的融合将创造无限可能。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>探索</h4>
+                    <ul>
+                        <li><a href="#">最新资讯</a></li>
+                        <li><a href="#">热门榜单</a></li>
+                        <li><a href="#">专题报道</a></li>
+                        <li><a href="#">未来趋势</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>社区</h4>
+                    <ul>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">规则指南</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                        <li><a href="#">帮助中心</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">新浪微博</a></li>
+                        <li><a href="#">Bilibili</a></li>
+                        <li><a href="#">Discord</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 麦乐迪 Melody. All Rights Reserved. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 广告代码 -->
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+  </html>
