@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="福美莱官方网站，提供高品质家居清洁护理解决方案。涵盖地板清洁、皮革护理、空气清新及家居养护产品，致力于打造洁净、健康、舒适的生活环境。">
+    <meta name="keywords" content="福美莱,家居清洁,地板清洁剂,皮革护理,空气清新剂,家居养护">
+    <title>福美莱 - 高品质家居清洁护理解决方案专家</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #0088cc;
+            --accent-color: #ff9900;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 32px;
+            --container-width: 1200px;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        .section {
+            padding: var(--spacing-lg) 0;
+        }
+
+        .text-center { text-align: center; }
+        .flex { display: flex; }
+        .items-center { align-items: center; }
+        .justify-between { justify-content: space-between; }
+        .grid { display: grid; gap: var(--spacing-md); }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-dark);
+            font-weight: 400;
+        }
+
+        nav ul {
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after, nav a.active::after {
+            width: 100%;
+        }
+
+        .header-cta {
+            background-color: var(--primary-color);
+            color: var(--white) !important;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .header-cta:hover {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .header-cta::after { display: none; }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #e0f2ff 0%, #ffffff 100%);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-dark);
+        }
+
+        .hero-text p {
+            font-size: 1.125rem;
+            color: var(--text-gray);
+            margin-bottom: var(--spacing-lg);
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 86, 179, 0.3);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .feature-badge {
+            position: absolute;
+            bottom: 20px;
+            left: -20px;
+            background: var(--white);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Categories */
+        .categories-grid {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .category-card {
+            background: var(--white);
+            border: 1px solid #eee;
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow);
+            transform: translateY(-5px);
+        }
+
+        .cat-icon {
+            font-size: 40px;
+            margin-bottom: var(--spacing-md);
+            color: var(--primary-color);
+        }
+
+        .category-card h3 {
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.2rem;
+        }
+
+        .category-card p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        /* Products Section */
+        .product-section {
+            background-color: var(--bg-light);
+        }
+
+        .section-header {
+            margin-bottom: var(--spacing-lg);
+            text-align: center;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .section-header p {
+            color: var(--text-gray);
+        }
+
+        .product-grid {
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+
+        .product-card:hover {
+            box-shadow: var(--shadow);
+        }
+
+        .product-img {
+            height: 200px;
+            background-color: #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.05);
+        }
+
+        .product-tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .product-info {
+            padding: var(--spacing-md);
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .product-desc {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            margin-bottom: var(--spacing-md);
+            height: 40px;
+            overflow: hidden;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .buy-btn {
+            background-color: var(--text-dark);
+            color: var(--white);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .buy-btn:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* Benefits Section */
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-lg);
+        }
+
+        .benefit-item {
+            text-align: center;
+        }
+
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(0, 86, 179, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-md);
+            color: var(--primary-color);
+            font-size: 24px;
+        }
+
+        .benefit-item h4 {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .benefit-item p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        /* Usage Guide */
+        .guide-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+        }
+
+        .guide-list li {
+            margin-bottom: var(--spacing-md);
+            padding-left: 24px;
+            position: relative;
+            color: var(--text-gray);
+        }
+
+        .guide-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: var(--bg-light);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            margin-bottom: var(--spacing-md);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .faq-question {
+            padding: var(--spacing-md);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            background: var(--white);
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background-color: #f1f5f9;
+        }
+
+        .faq-answer {
+            padding: 0 var(--spacing-md) var(--spacing-md);
+            color: var(--text-gray);
+            display: none;
+            border-top: 1px solid #eee;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        .toggle-icon {
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: var(--spacing-lg);
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--white);
+        }
+
+        .footer-brand p {
+            color: #aaa;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            max-width: 300px;
+        }
+
+        .footer-links h4 {
+            margin-bottom: var(--spacing-md);
+            font-size: 1.1rem;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--white);
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 10px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+        }
+
+        .newsletter-form button {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 0 15px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text p {
+                margin: 0 auto var(--spacing-lg);
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .benefits {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+            
+            .header-cta {
+                display: none;
+            }
+
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+
+            .guide-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">福美莱 <span>Home Care</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#products">产品中心</a></li>
+                    <li><a href="#categories">产品分类</a></li>
+                    <li><a href="#guide">使用指南</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <a href="#products" class="header-cta">立即选购</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>让家时刻保持洁净与舒适</h1>
+                <p>福美莱专注家居清洁护理领域，采用天然植物萃取成分，为您提供地板、皮革、空气等全方位的清洁解决方案。告别繁琐家务，享受品质生活。</p>
+                <div class="hero-buttons">
+                    <a href="#products" class="btn btn-primary">探索产品</a>
+                    <a href="#guide" class="btn btn-outline">使用教程</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://picsum.photos/seed/cleanhome/600/400" alt="整洁舒适的家居环境">
+                <div class="feature-badge">
+                    <span style="font-size: 24px;">🌿</span>
+                    <div>
+                        <div style="font-weight: bold; font-size: 14px;">天然配方</div>
+                        <div style="font-size: 12px; color: #666;">0化学残留</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="section" id="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2>核心产品系列</h2>
+                <p>针对不同家居场景，提供精准的清洁护理方案</p>
+            </div>
+            <div class="grid categories-grid">
+                <article class="category-card">
+                    <div class="cat-icon">🪵</div>
+                    <h3>地板护理</h3>
+                    <p>木地板、瓷砖、石材专用清洁剂，去污防滑，保持光泽。</p>
+                </article>
+                <article class="category-card">
+                    <div class="cat-icon">🛋️</div>
+                    <h3>皮革养护</h3>
+                    <p>沙发、皮具清洁护理，去污去渍，滋润防裂。</p>
+                </article>
+                <article class="category-card">
+                    <div class="cat-icon">🍃</div>
+                    <h3>空气清新</h3>
+                    <p>除甲醛、除异味，净化室内空气，营造清新环境。</p>
+                </article>
+                <article class="category-card">
+                    <div class="cat-icon">🧴</div>
+                    <h3>厨房油污</h3>
+                    <p>强力去油配方，轻松瓦解顽固油渍，保护厨具。</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section class="section product-section" id="products">
+        <div class="container">
+            <div class="section-header">
+                <h2>热销推荐</h2>
+                <p>深受消费者信赖的高品质家居清洁产品</p>
+            </div>
+            <div class="grid product-grid">
+                <!-- Product 1 -->
+                <article class="product-card">
+                    <div class="product-img">
+                        <span class="product-tag">热销</span>
+                        <img src="https://picsum.photos/seed/floorclean/400/300" alt="福美莱实木地板护理液">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">福美莱实木地板护理液</h3>
+                        <p class="product-desc">深层滋养，修复划痕，保持地板自然光泽，防潮防霉。</p>
+                        <div class="product-footer">
+                            <span class="price">¥89.00</span>
+                            <a href="#" class="buy-btn">购买</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Product 2 -->
+                <article class="product-card">
+                    <div class="product-img">
+                        <img src="https://picsum.photos/seed/leather/400/300" alt="福美莱多功能皮革清洁剂">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">多功能皮革清洁剂</h3>
+                        <p class="product-desc">温和去污，不伤皮质，适用于沙发、汽车座椅及皮具。</p>
+                        <div class="product-footer">
+                            <span class="price">¥65.00</span>
+                            <a href="#" class="buy-btn">购买</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Product 3 -->
+                <article class="product-card">
+                    <div class="product-img">
+                        <span class="product-tag">新品</span>
+                        <img src="https://picsum.photos/seed/airfresh/400/300" alt="福美莱车载除味香氛">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">车载除味香氛</h3>
+                        <p class="product-desc">天然香氛，快速吸附车内异味，营造清新驾驶空间。</p>
+                        <div class="product-footer">
+                            <span class="price">¥39.00</span>
+                            <a href="#" class="buy-btn">购买</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Product 4 -->
+                <article class="product-card">
+                    <div class="product-img">
+                        <img src="https://picsum.photos/seed/kitchen/400/300" alt="福美莱强力厨房重油污净">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">强力厨房重油污净</h3>
+                        <p class="product-desc">植物萃取配方，一喷一擦，瓦解顽固油垢，无刺鼻气味。</p>
+                        <div class="product-footer">
+                            <span class="price">¥45.00</span>
+                            <a href="#" class="buy-btn">购买</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="section">
+        <div class="container">
+            <div class="grid benefits">
+                <div class="benefit-item">
+                    <div class="benefit-icon">🛡️</div>
+                    <h4>安全环保</h4>
+                    <p>通过多项安全检测，母婴可用，无刺激性气味。</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">⚡</div>
+                    <h4>高效去污</h4>
+                    <p>渗透性强，快速分解污渍，清洁效果显著。</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">💎</div>
+                    <h4>持久养护</h4>
+                    <p>清洁同时提供养护，延长家居用品使用寿命。</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">📦</div>
+                    <h4>便捷包装</h4>
+                    <p>大容量设计，按压式瓶盖，使用方便不浪费。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Usage Guide -->
+    <section class="section product-section" id="guide">
+        <div class="container">
+            <div class="grid guide-grid">
+                <div class="guide-content">
+                    <h2>如何正确使用福美莱产品</h2>
+                    <p style="margin-bottom: 20px; color: var(--text-gray);">正确的方法能最大化清洁效果并保护您的家具和地板。</p>
+                    <ul class="guide-list">
+                        <li><strong>1. 清洁前准备：</strong> 撕去瓶口保护膜，轻轻摇晃均匀，根据污渍程度按1:10至1:20比例兑水稀释。</li>
+                        <li><strong>2. 喷洒与擦拭：</strong> 将稀释后的液体喷洒在污渍处，静置1-2分钟，用软布或海绵顺着纹理擦拭。</li>
+                        <li><strong>3. 抛光处理：</strong> 对于地板和皮革产品，清洁后可用干布擦干或抛光，恢复表面光泽。</li>
+                        <li><strong>4. 定期保养：</strong> 建议每周进行一次基础清洁，每月进行一次深度护理，保持家居环境最佳状态。</li>
+                    </ul>
+                </div>
+                <div class="guide-image">
+                    <img src="https://picsum.photos/seed/cleaningtips/600/400" alt="福美莱产品使用演示">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq-section" id="faq">
+        <div class="container faq-container">
+            <div class="section-header">
+                <h2>常见问题解答</h2>
+                <p>关于福美莱产品使用及购买的疑问</p>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    福美莱产品是否含有强腐蚀性化学成分？
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    不含。福美莱所有产品均采用植物萃取配方，不含强酸强碱及磷、荧光剂等有害物质，对人体和家居环境安全友好。
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    不同材质的地板可以使用同一款清洁剂吗？
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    不建议混用。建议根据地板材质（如实木、复合、瓷砖）选择对应的专业护理液，以免造成地板损伤或光泽度下降。
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    购买后多久能发货？
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    我们通常在订单确认后24小时内安排发货，偏远地区可能会有1-2天的物流延迟，具体时效请参考订单详情。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>福美莱 Home Care</h3>
+                    <p>致力于为每一个家庭提供专业、安全、高效的家居清洁解决方案。让清洁变得简单，让生活更加美好。</p>
+                </div>
+                <div class="footer-links">
+                    <h4>产品系列</h4>
+                    <ul>
+                        <li><a href="#">地板清洁</a></li>
+                        <li><a href="#">皮革护理</a></li>
+                        <li><a href="#">空气清新</a></li>
+                        <li><a href="#">厨房清洁</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">品牌故事</a></li>
+                        <li><a href="#">质量承诺</a></li>
+                        <li><a href="#">招贤纳士</a></li>
+                        <li><a href="#">联系方式</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>订阅动态</h4>
+                    <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 10px;">获取最新优惠和清洁小贴士</p>
+                    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('感谢订阅！我们将定期向您发送优惠信息。');">
+                        <input type="email" placeholder="您的邮箱地址" required>
+                        <button type="submit">订阅</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 福美莱家居护理有限公司 版权所有 | 京ICP备XXXXXXXX号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ Toggle Logic
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+  </html>
