@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>香香美食推荐 - 精选美食指南与本地探店攻略</title>
+    <meta name="description" content="香香美食推荐为您提供最新、最全的本地美食探店指南、热门餐厅排行榜及独家美食制作教程，帮助您发现城市中不可错过的美味佳肴。">
+    <meta name="keywords" content="香香美食推荐, 美食探店, 餐厅推荐, 美食攻略, 本地美食">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff6b35;
+            --primary-hover: #e85d2b;
+            --secondary-color: #f7c59f;
+            --text-dark: #2d3436;
+            --text-gray: #636e72;
+            --bg-light: #fdfdfd;
+            --bg-off-white: #f9f9f9;
+            --border-radius: 12px;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-dark);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: var(--bg-off-white);
+            padding: 8px 15px;
+            border-radius: 20px;
+            width: 300px;
+        }
+
+        .search-box input {
+            border: none;
+            background: transparent;
+            outline: none;
+            margin-left: 10px;
+            width: 100%;
+            font-size: 14px;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffffff 100%);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #fff;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: var(--text-gray);
+            border: 1px solid #eee;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .tag:hover, .tag.active {
+            background: var(--primary-color);
+            color: #fff;
+            border-color: var(--primary-color);
+        }
+
+        /* 热门榜单 */
+        .section-title {
+            font-size: 28px;
+            margin: 50px 0 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::before {
+            content: '';
+            display: block;
+            width: 6px;
+            height: 28px;
+            background: var(--primary-color);
+            border-radius: 3px;
+        }
+
+        .ranking-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .rank-card {
+            background: #fff;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .rank-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .rank-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--primary-color);
+            color: #fff;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            z-index: 2;
+        }
+
+        .rank-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .rank-content {
+            padding: 20px;
+        }
+
+        .rank-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .rank-meta {
+            font-size: 13px;
+            color: var(--text-gray);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* 分类浏览 */
+        .category-section {
+            background: var(--bg-off-white);
+            padding: 60px 0;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .cat-item {
+            background: #fff;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .cat-item:hover {
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow);
+        }
+
+        .cat-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .cat-name {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        /* 精选文章/教程 */
+        .article-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .main-article {
+            background: #fff;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .main-article img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+
+        .article-body {
+            padding: 30px;
+        }
+
+        .article-body h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .article-body p {
+            color: var(--text-gray);
+            margin-bottom: 15px;
+        }
+
+        .read-more {
+            display: inline-block;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .side-list {
+            background: #fff;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .side-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .side-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .side-thumb {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .side-info h4 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .side-info span {
+            font-size: 12px;
+            color: var(--text-gray);
+        }
+
+        /* 问答/常见问题 */
+        .faq-section {
+            padding: 60px 0;
+        }
+
+        .faq-item {
+            background: #fff;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-gray);
+            font-size: 14px;
+            display: none; /* JS toggle */
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* 页脚 */
+        footer {
+            background: #2d3436;
+            color: #dfe6e9;
+            padding: 50px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #b2bec3;
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #636e72;
+            font-size: 13px;
+            color: #636e72;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 900px) {
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .article-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+            }
+            nav ul {
+                margin: 15px 0;
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .search-box {
+                width: 100%;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+                香香<span>美食推荐</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">热门榜单</a></li>
+                    <li><a href="#">餐厅分类</a></li>
+                    <li><a href="#">美食教程</a></li>
+                    <li><a href="#">社区讨论</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" placeholder="搜索菜名或餐厅...">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>发现城市里的每一份美味</h1>
+                <p>香香美食推荐致力于为您挖掘本地口碑好店、网红打卡地及独家美食秘籍，让您的餐桌从此不再单调。</p>
+                <div class="hero-tags">
+                    <span class="tag active">全部</span>
+                    <span class="tag">火锅</span>
+                    <span class="tag">日料</span>
+                    <span class="tag">烘焙</span>
+                    <span class="tag">街头小吃</span>
+                    <span class="tag">西餐</span>
+                    <span class="tag">甜品</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 热门榜单 -->
+        <section class="container">
+            <h2 class="section-title">本周热门推荐</h2>
+            <div class="ranking-list">
+                <article class="rank-card">
+                    <span class="rank-badge">1</span>
+                    <img src="https://picsum.photos/seed/food1/400/300" alt="招牌麻辣火锅" class="rank-img">
+                    <div class="rank-content">
+                        <h3 class="rank-title">老巷子·秘制麻辣火锅</h3>
+                        <div class="rank-meta">
+                            <span>🔥 12.5k 浏览</span>
+                            <span>⭐ 4.9 评分</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="rank-card">
+                    <span class="rank-badge">2</span>
+                    <img src="https://picsum.photos/seed/food2/400/300" alt="日式烧肉" class="rank-img">
+                    <div class="rank-content">
+                        <h3 class="rank-title">极上·炭火烧肉屋</h3>
+                        <div class="rank-meta">
+                            <span>🔥 10.2k 浏览</span>
+                            <span>⭐ 4.8 评分</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="rank-card">
+                    <span class="rank-badge">3</span>
+                    <img src="https://picsum.photos/seed/food3/400/300" alt="法式甜点" class="rank-img">
+                    <div class="rank-content">
+                        <h3 class="rank-title">云端·手工法甜工坊</h3>
+                        <div class="rank-meta">
+                            <span>🔥 8.9k 浏览</span>
+                            <span>⭐ 4.7 评分</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="rank-card">
+                    <span class="rank-badge">4</span>
+                    <img src="https://picsum.photos/seed/food4/400/300" alt="深夜食堂" class="rank-img">
+                    <div class="rank-content">
+                        <h3 class="rank-title">深夜食堂·私房菜</h3>
+                        <div class="rank-meta">
+                            <span>🔥 7.5k 浏览</span>
+                            <span>⭐ 4.6 评分</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 餐饮分类 -->
+        <section class="category-section">
+            <div class="container">
+                <h2 class="section-title">按类型浏览</h2>
+                <div class="category-grid">
+                    <div class="cat-item">
+                        <span class="cat-icon">🍜</span>
+                        <div class="cat-name">中式正餐</div>
+                    </div>
+                    <div class="cat-item">
+                        <span class="cat-icon">🍣</span>
+                        <div class="cat-name">日韩料理</div>
+                    </div>
+                    <div class="cat-item">
+                        <span class="cat-icon">🥩</span>
+                        <div class="cat-name">西餐牛排</div>
+                    </div>
+                    <div class="cat-item">
+                        <span class="cat-icon">🍰</span>
+                        <div class="cat-name">烘焙甜点</div>
+                    </div>
+                    <div class="cat-item">
+                        <span class="cat-icon">☕</span>
+                        <div class="cat-name">咖啡馆</div>
+                    </div>
+                    <div class="cat-item">
+                        <span class="cat-icon">🍹</span>
+                        <div class="cat-name">酒吧清吧</div>
+                    </div>
+                    <div class="cat-item">
+                        <span class="cat-icon">🍲</span>
+                        <div class="cat-name">汤锅粥品</div>
+                    </div>
+                    <div class="cat-item">
+                        <span class="cat-icon">🥟</span>
+                        <div class="cat-name">地方小吃</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 精选文章与教程 -->
+        <section class="container">
+            <h2 class="section-title">美食攻略与教程</h2>
+            <div class="article-grid">
+                <div class="main-article">
+                    <img src="https://picsum.photos/seed/cooking/800/400" alt="自制意面教程">
+                    <div class="article-body">
+                        <span style="color:var(--primary-color); font-size:14px; font-weight:bold;">居家烹饪</span>
+                        <h2>零失败！在家轻松做出米其林级别的番茄罗勒意面</h2>
+                        <p>很多人觉得做意面很难，其实关键在于酱汁的熬制和配料的平衡。本文将为您详细解析如何挑选优质番茄，以及独家罗勒酱汁配方，让您在家也能享受西餐厅的精致美味。</p>
+                        <a href="#" class="read-more">阅读全文 &rarr;</a>
+                    </div>
+                </div>
+                <aside class="side-list">
+                    <div class="side-item">
+                        <img src="https://picsum.photos/seed/bbq/100/100" alt="BBQ" class="side-thumb">
+                        <div class="side-info">
+                            <h4>户外烧烤必备清单</h4>
+                            <span>烧烤技巧</span>
+                        </div>
+                    </div>
+                    <div class="side-item">
+                        <img src="https://picsum.photos/seed/tea/100/100" alt="茶道" class="side-thumb">
+                        <div class="side-info">
+                            <h4>春季养生茶饮推荐</h4>
+                            <span>健康生活</span>
+                        </div>
+                    </div>
+                    <div class="side-item">
+                        <img src="https://picsum.photos/seed/fruit/100/100" alt="水果" class="side-thumb">
+                        <div class="side-info">
+                            <h4>如何挑选最新鲜的水果</h4>
+                            <span>生活百科</span>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <!-- 常见问题 -->
+        <section class="container faq-section">
+            <h2 class="section-title">美食探索指南</h2>
+            <div class="faq-item">
+                <div class="faq-question">如何获取最新的餐厅优惠信息？ <span>+</span></div>
+                <div class="faq-answer">您可以关注我们的微信公众号或加入本地美食社群，每周我们会推送当周的限时优惠和霸王餐活动。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">推荐餐厅是否收费？ <span>+</span></div>
+                <div class="faq-answer">香香美食推荐的所有餐厅推荐均基于真实用户评价和实地考察，不收取任何商家的推荐费用，确保推荐内容的客观中立。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">如何提交自己的探店体验？ <span>+</span></div>
+                <div class="faq-answer">您可以在“社区讨论”板块发布您的探店笔记，经过审核后，优质内容有机会被推荐到首页展示。</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>香香美食推荐</h3>
+                    <p style="color:#b2bec3; font-size:14px; line-height:1.8;">
+                        专注于本地生活服务，为您发现城市中隐藏的美味。无论是高端餐厅还是街角小吃，我们都用心记录。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">商家入驻</a></li>
+                        <li><a href="#">广告合作</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>热门分类</h3>
+                    <ul>
+                        <li><a href="#">火锅烧烤</a></li>
+                        <li><a href="#">日韩料理</a></li>
+                        <li><a href="#">西餐牛排</a></li>
+                        <li><a href="#">甜品烘焙</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>联系我们</h3>
+                    <ul>
+                        <li><a href="#">合作咨询</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                        <li><a href="#">商务邮箱</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 香香美食推荐 版权所有
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的标签切换逻辑
+        document.querySelectorAll('.tag').forEach(tag => {
+            tag.addEventListener('click', function() {
+                document.querySelectorAll('.tag').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // FAQ 折叠逻辑
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+                const icon = item.querySelector('span');
+                icon.textContent = parent.classList.contains('active') ? '-' : '+';
+            });
+        });
+    </script>
+</body>
+</html>
